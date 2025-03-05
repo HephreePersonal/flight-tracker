@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class Flight {
     private $flightNumber;
     private $departure;
@@ -43,5 +45,13 @@ class Flight {
 
     public function setDate($date) {
         $this->date = $date;
+    }
+
+    public static function all() {
+        // This is a placeholder. You should replace it with actual database retrieval logic.
+        return [
+            ['id' => 1, 'airline' => 'Airline A', 'flight_number' => 'AA123'],
+            ['id' => 2, 'airline' => 'Airline B', 'flight_number' => 'BB456'],
+        ];
     }
 }

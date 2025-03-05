@@ -20,23 +20,21 @@ $flights = []; // This will hold the list of flights, fetched from the database 
     <title>Flight Tracker</title>
 </head>
 <body>
-    <h1>My Flights</h1>
+    <h1>All Flights</h1>
     <table>
         <thead>
             <tr>
+                <th>ID</th>
+                <th>Airline</th>
                 <th>Flight Number</th>
-                <th>Departure</th>
-                <th>Arrival</th>
-                <th>Date</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($flights as $flight): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($flight->getFlightNumber()); ?></td>
-                    <td><?php echo htmlspecialchars($flight->getDeparture()); ?></td>
-                    <td><?php echo htmlspecialchars($flight->getArrival()); ?></td>
-                    <td><?php echo htmlspecialchars($flight->getDate()); ?></td>
+                    <td><?php echo htmlspecialchars($flight['id']); ?></td>
+                    <td><?php echo htmlspecialchars($flight['airline']); ?></td>
+                    <td><?php echo htmlspecialchars($flight['flight_number']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
