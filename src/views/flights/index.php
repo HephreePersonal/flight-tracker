@@ -1,8 +1,8 @@
 <?php
 // This file is responsible for rendering the view that displays the list of flights.
 
-require_once '../../../config/database.php';
-require_once '../../models/Flight.php';
+require_once __DIR__ . '/../../../config/database.php';
+require_once __DIR__ . '/../../models/Flight.php';
 
 $flights = []; // This will hold the list of flights, fetched from the database or controller
 

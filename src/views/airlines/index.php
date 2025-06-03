@@ -1,8 +1,8 @@
 <?php
 // This file is responsible for rendering the view that displays the list of airlines.
 
-require_once '../../../config/database.php';
-require_once '../../models/Airline.php';
+require_once __DIR__ . '/../../../config/database.php';
+require_once __DIR__ . '/../../models/Airline.php';
 
 $airlines = Airline::all(); // Fetch all airlines from the database
 
