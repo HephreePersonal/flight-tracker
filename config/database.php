@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = 'localhost'; // Database host
-$dbname = 'hephreeair'; // Database name
-$username = 'root'; // Database username
-$password = 'VeryKnies23!'; // Database password
+$host = getenv('DB_HOST') ?: 'localhost';
+$dbname = getenv('DB_NAME') ?: 'hephreeair';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '';
 
 try {
     // Create a new PDO instance

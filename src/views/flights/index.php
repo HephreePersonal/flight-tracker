@@ -1,8 +1,6 @@
 <?php
 // This file is responsible for rendering the view that displays the list of flights.
 
-// The $flights variable is expected to be provided by the controller
-
 ?>
 
 <!DOCTYPE html>
