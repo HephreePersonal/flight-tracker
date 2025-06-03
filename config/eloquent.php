@@ -6,10 +6,10 @@ $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'hephreeair',
-    'username'  => 'root',
-    'password'  => 'VeryKnies23!',
+    'host'      => getenv('DB_HOST') ?: 'localhost',
+    'database'  => getenv('DB_NAME') ?: 'hephreeair',
+    'username'  => getenv('DB_USER') ?: 'root',
+    'password'  => getenv('DB_PASSWORD') ?: '',
     'charset'   => 'utf8mb4',
     'collation' => 'utf8mb4_0900_ai_ci',
     'prefix'    => '',
@@ -20,3 +20,4 @@ $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM
 $capsule->bootEloquent();
+
