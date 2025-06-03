@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class Flight {
     private $flightNumber;
     private $departure;
@@ -48,10 +50,7 @@ class Flight {
     }
 
     public static function all() {
-        // This is a placeholder. You should replace it with actual database retrieval logic.
-        return [
-            ['id' => 1, 'airline' => 'Airline A', 'flight_number' => 'AA123'],
-            ['id' => 2, 'airline' => 'Airline B', 'flight_number' => 'BB456'],
-        ];
+        // Fetch all flights from the database using Eloquent's query builder
+        return Capsule::table('flights')->get()->toArray();
     }
 }

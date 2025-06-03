@@ -1,14 +1,6 @@
 <?php
 // This file is responsible for rendering the view that displays the list of flights.
 
-require_once __DIR__ . '/../../../config/database.php';
-require_once __DIR__ . '/../../models/Flight.php';
-
-$flights = []; // This will hold the list of flights, fetched from the database or controller
-
-// Here you would typically fetch the flights from the controller or model
-// For example: $flights = FlightController::getAllFlights();
-
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +24,9 @@ $flights = []; // This will hold the list of flights, fetched from the database 
         <tbody>
             <?php foreach ($flights as $flight): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($flight['id']); ?></td>
-                    <td><?php echo htmlspecialchars($flight['airline']); ?></td>
-                    <td><?php echo htmlspecialchars($flight['flight_number']); ?></td>
+                    <td><?php echo htmlspecialchars($flight->id); ?></td>
+                    <td><?php echo htmlspecialchars($flight->airline); ?></td>
+                    <td><?php echo htmlspecialchars($flight->flight_number); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
