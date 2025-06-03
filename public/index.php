@@ -6,16 +6,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // Initialize Eloquent ORM
 require_once __DIR__ . '/../config/eloquent.php';
+use Slim\Factory\AppFactory;
+use App\Controllers\FlightController;
 
-// Initialize the application
-$app = new \App\Application();
+$app = AppFactory::create();
 
-// Define routes
-$app->get('/', 'FlightController@index');
-$app->post('/flights', 'FlightController@addFlight');
-$app->delete('/flights/{id}', 'FlightController@deleteFlight');
-$app->get('/airlines', 'FlightController@showAirlines'); // Add this line
+$controller = new FlightController();
 
-// Run the application
+$app->get('/', [$controller, 'index']);
+$app->post('/flights', [$controller, 'addFlight']);
+$app->delete('/flights/{id}', [$controller, 'deleteFlight']);
+$app->get('/airlines', [$controller, 'showAirlines']);
+
 $app->run();
 ?>
