@@ -17,6 +17,7 @@ $app->get('/', [$controller, 'index']);
 $app->post('/flights', [$controller, 'addFlight']);
 $app->delete('/flights/{id}', [$controller, 'deleteFlight']);
 $app->get('/airlines', [$controller, 'showAirlines']);
+$app->get('/quickstart', [$controller, 'quickStart']);
 
 $app->run();
 ?>
