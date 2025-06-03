@@ -4,31 +4,48 @@ namespace App\Controllers;
 
 use App\Models\Flight;
 use App\Models\Airline;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class FlightController
 {
-    public function index()
+    public function index(Request $request, Response $response, array $args): Response
     {
         // Retrieve all flights
         $flights = Flight::all();
 
-        // Pass the flights data to the view
-        require_once __DIR__ . '/../views/flights/index.php';
+        // Render the view
+        ob_start();
+        require __DIR__ . '/../views/flights/index.php';
+        $output = ob_get_clean();
+
+        $response->getBody()->write($output);
+        return $response;
     }
 
-    public function addFlight()
+    public function addFlight(Request $request, Response $response, array $args): Response
     {
-        // Logic to handle the addition of a new flight
+        // Placeholder for adding a flight
+        $response->getBody()->write('Add flight not implemented');
+        return $response;
     }
 
-    public function deleteFlight($flightId)
+    public function deleteFlight(Request $request, Response $response, array $args): Response
     {
-        // Logic to remove a flight from the records
+        // Placeholder for deleting a flight
+        $response->getBody()->write('Delete flight not implemented');
+        return $response;
     }
 
-    public function showAirlines()
+    public function showAirlines(Request $request, Response $response, array $args): Response
     {
         $airlines = Airline::all();
-        require_once __DIR__ . '/../views/airlines/index.php';
+
+        ob_start();
+        require __DIR__ . '/../views/airlines/index.php';
+        $output = ob_get_clean();
+
+        $response->getBody()->write($output);
+        return $response;
     }
 }

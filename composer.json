@@ -1,5 +1,5 @@
 {
-    "name": "flight-tracker",
+    "name": "flighttracker/app",
     "description": "A PHP application to track and manage commercial aviation flights.",
     "type": "project",
     "require": {
