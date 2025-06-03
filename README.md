@@ -3,6 +3,17 @@
 ## Overview
 The Flight Tracker is a web application designed to help users track and manage their commercial aviation flights. Users can add new flights, view a list of their flights, and delete flights they no longer wish to keep in their records.
 
+## Quick Start
+Install dependencies and launch a local server with PHP's built-in server:
+
+```bash
+composer install
+php -S localhost:8000 -t public
+```
+
+Open <http://localhost:8000> in your browser to see the app.
+
+
 ## Project Structure
 ```
 flight-tracker

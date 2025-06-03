@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Flight;
 use App\Models\Airline;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class FlightController
 {
@@ -58,6 +61,16 @@ class FlightController
 
         ob_start();
         require __DIR__ . '/../views/airlines/index.php';
+        $output = ob_get_clean();
+
+        $response->getBody()->write($output);
+        return $response;
+    }
+
+    public function quickStart(Request $request, Response $response, array $args): Response
+    {
+        ob_start();
+        require __DIR__ . '/../views/quickstart.php';
         $output = ob_get_clean();
 
         $response->getBody()->write($output);
