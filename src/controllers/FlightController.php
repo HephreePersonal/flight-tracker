@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Flight;
 use App\Models\Airline;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class FlightController
 {
@@ -18,12 +19,27 @@ class FlightController
 
     public function addFlight()
     {
-        // Logic to handle the addition of a new flight
+        // Insert a new flight record using POSTed data
+        $airline = $_POST['airline'] ?? null;
+        $flightNumber = $_POST['flight_number'] ?? null;
+
+        if ($airline && $flightNumber) {
+            Capsule::table('flights')->insert([
+                'airline' => $airline,
+                'flight_number' => $flightNumber,
+            ]);
+        }
+
+        header('Location: /');
+        exit;
     }
 
     public function deleteFlight($flightId)
     {
-        // Logic to remove a flight from the records
+        Capsule::table('flights')->where('id', $flightId)->delete();
+
+        header('Location: /');
+        exit;
     }
 
     public function showAirlines()
