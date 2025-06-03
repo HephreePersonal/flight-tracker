@@ -38,20 +38,29 @@ flight-tracker
    composer install
    ```
 
-3. **Configure Database**
-   Update the `config/database.php` file with your database connection details:
-   ```php
-   <?php
-   return [
-       'host' => 'your_database_host',
-       'username' => 'your_database_username',
-       'password' => 'your_database_password',
-       'dbname' => 'your_database_name',
-   ];
+3. **Configure Environment**
+   Copy the provided `.env.example` file to `.env` and update the values with
+   your database credentials:
+   ```bash
+   cp .env.example .env
    ```
+   The application reads the following environment variables:
+   - `DB_HOST` – database server hostname
+   - `DB_NAME` – name of the database
+   - `DB_USER` – database user
+   - `DB_PASSWORD` – database password
 
 4. **Run the Application**
    You can use a local server like XAMPP or MAMP to run the application. Place the project in the server's root directory and navigate to `http://localhost/flight-tracker/public/index.php` in your web browser.
+
+## Environment Variables
+The application expects the following variables to be set, either in your shell
+environment or in a `.env` file:
+
+- `DB_HOST` – database server hostname
+- `DB_NAME` – name of the database
+- `DB_USER` – database user
+- `DB_PASSWORD` – database password
 
 ## Usage
 - **View Flights**: The application will display a list of all flights you have added.
@@ -60,3 +69,4 @@ flight-tracker
 
 ## Contributing
 Feel free to submit issues or pull requests if you would like to contribute to the project.
+
